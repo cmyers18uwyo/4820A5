@@ -21,7 +21,7 @@ CREATE TABLE if not exists address (
 	address_line​3 text,
 	city text,
 	stat varchar(2),
-	ADD CONSTRAINT fk_invoice
+	CONSTRAINT fk_invoice
 		FOREIGN KEY (invoice_id)  
 			REFERENCES invoice(invoice_id) 
 	
@@ -33,7 +33,7 @@ CREATE TABLE if not exists invoice_line (
 	unit_price decimal,
 	description text,
 	extended_price decimal,
-	ADD CONSTRAINT fk_invoice
+	CONSTRAINT fk_invoice
 		FOREIGN KEY (invoice_id)  
 			REFERENCES invoice(invoice_id) 
 
