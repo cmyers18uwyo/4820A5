@@ -66,8 +66,8 @@ BEGIN
 SELECT 
 		invoice_id,
 		line_no,
-		sum(tax) OVER (PARTITION BY invoice_id) as sum_tax FROM invoice,
---		avg(tax) OVER (PARTITION BY invoice_id) as avg_tax FROM invoice,
+		sum(tax) OVER (PARTITION BY invoice_id) as sum_tax,
+		avg(tax) OVER (PARTITION BY invoice_id) as avg_tax,
 		zip_code
 ;
 END

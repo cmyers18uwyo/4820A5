@@ -17,10 +17,10 @@ CREATE TABLE if not exists address (
 	customer_name text,
 	zip_code text,
 	address_line1 text,
-	address_line1 text,
-	address_line1 text,
+	address_line2 text,
+	address_line3 text,
 	city text,
-	stat varchar(2),
+	state varchar(2),
 	invoice_id UUID NOT NULL DEFAULT uuid_generate_v4(),
 	CONSTRAINT fk_invoice
 		FOREIGN KEY (invoice_id)  
