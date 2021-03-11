@@ -7,7 +7,7 @@ CREATE TABLE if not exists invoice (
 	invoice_id UUID NOT NULL DEFAULT uuid_generate_v4() primary key, 
 	total decimal,
 	tax decimal,
-	invoice_date time 
+	invoice_date timestamp 
 );
 CREATE INDEX invoice_id_idx1 on invoice ( invoice_id );
 CREATE INDEX invoice_date_idx2 on invoice ( invoice_date ); 
@@ -16,9 +16,9 @@ CREATE TABLE if not exists address (
 	addr_type varchar(20),
 	customer_name text,
 	zip_code text,
-	address_line​1 text,
-	address_line​2 text,
-	address_line​3 text,
+	address_line1 text,
+	address_line1 text,
+	address_line1 text,
 	city text,
 	stat varchar(2),
 	invoice_id UUID NOT NULL DEFAULT uuid_generate_v4(),

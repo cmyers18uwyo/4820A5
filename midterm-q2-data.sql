@@ -63,16 +63,15 @@ BEGIN
 	,   ( 2, inv2, 4, 12, 'Widget 1', 48 )
 	,   ( 3, inv2, 2,  1, 'Widget 4',  2 )
 	;
-
-END
-
 SELECT 
 		invoice_id,
 		line_no,
 		sum(tax) OVER (PARTITION BY invoice_id) as sum_tax FROM invoice,
-		avg(tax) OVER (PARTITION BY invoice_id) as avg_tax FROM invoice,
+--		avg(tax) OVER (PARTITION BY invoice_id) as avg_tax FROM invoice,
 		zip_code
 ;
+END
+
 $$ LANGUAGE plpgsql;
 
 
