@@ -64,12 +64,14 @@ BEGIN
 	,   ( 3, inv2, 2,  1, 'Widget 4',  2 )
 	;
 SELECT 
-		invoice_id,
-		line_no,
-		sum(tax) OVER (PARTITION BY invoice_id) as sum_tax,
-		avg(tax) OVER (PARTITION BY invoice_id) as avg_tax,
-		zip_code
-;
+	t1.invoice_id, 
+	line_no, 
+	sum(tax) OVER (PARTITION BY invoice_id) as sum_tax,
+	avg(tax) OVER (PARTITION BY invoice_id) as avg_tax,
+	zip_code
+	FROM t1 JOIN t2 on (t1.invoice_id = t2.invoice_id) 
+	ORDER BY line_no
+
 END
 
 $$ LANGUAGE plpgsql;
