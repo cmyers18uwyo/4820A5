@@ -4,6 +4,6 @@
 
 SELECT
 	* FROM authors
-	FULL OUTER JOIN on (authors.id = books.author_id);
+	FULL OUTER JOIN books t1 on (authors.id = t1.author_id);
 
 ;
