@@ -66,12 +66,14 @@ BEGIN
 SELECT 
 	t1.invoice_id, 
 	line_no, 
-	sum(tax) OVER (PARTITION BY invoice_id) as sum_tax,
-	avg(tax) OVER (PARTITION BY invoice_id) as avg_tax,
+	--sum(tax) OVER (PARTITION BY invoice_id) as sum_tax,
+	--avg(tax) OVER (PARTITION BY invoice_id) as avg_tax,
 	zip_code
-	FROM t1 JOIN t2 on (t1.invoice_id = t2.invoice_id) 
+	FROM invoice_line t1
+	JOIN address on (address.invoice_id = t1.invoice_id),
+	invoice
 	ORDER BY line_no
-
+;
 END
 
 $$ LANGUAGE plpgsql;
